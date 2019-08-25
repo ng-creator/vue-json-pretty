@@ -6,7 +6,6 @@
       class="vjs-radio__original"
       type="radio"
       v-model="model"
-      :value="currentPath"
       @change="test"
       @focus="focus = true"
       @blur="focus = false">

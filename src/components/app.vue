@@ -70,9 +70,7 @@
       v-else
       :show-double-quotes="showDoubleQuotes"
       :show-comma="notLastKey"
-      :parent-data="parentData"
-      :data="data"
-      :current-key="currentKey">
+      :data="data">
       <span v-if="!Array.isArray(parentData)" class="vjs-key">{{ keyFormatter(currentKey) }}:</span>
     </simple-text>
   </div>

@@ -13,20 +13,13 @@
   export default {
     props: {
       showDoubleQuotes: Boolean,
-      parentData: {},
       data: {},
-      showComma: Boolean,
-      currentKey: [Number, String]
+      showComma: Boolean
     },
     computed: {
       // 当前数据类型
       dataType () {
         return getDataType(this.data)
-      },
-
-      // 父级数据类型
-      parentDataType () {
-        return getDataType(this.parentData)
       }
     },
     methods: {
