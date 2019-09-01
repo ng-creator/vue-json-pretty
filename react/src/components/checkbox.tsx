@@ -28,7 +28,7 @@ const Checkbox: React.FC<Props> = ({
         className="vjs-checkbox__original"
         type="checkbox"
         checked={value}
-        onChange={(e) => onChange(!!e.target.value)}
+        onChange={(e) => onChange(!value)}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
       />

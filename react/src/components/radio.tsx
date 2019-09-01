@@ -29,7 +29,7 @@ const Radio: React.FC<Props> = ({
       <input
         className="vjs-radio__original"
         type="radio"
-        value={value}
+        checked={value === currentPath}
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}

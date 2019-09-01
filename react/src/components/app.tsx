@@ -116,13 +116,18 @@ const App: React.FC<Props> = ({
     }
   })();
 
-  const handleClick = (emitType: 'tree' | 'checkbox' | 'radio', e: React.MouseEvent | null = null) => {
+  const handleClick = (e: React.MouseEvent) => {
     // e.stopPropagation();
     onClick(path, data);
 
-    if (!selectable) return;
+    if (selectable && selectOnClickNode) {
+      handleValueChange('tree');
+    }
+  };
+
+  const handleValueChange = (emitType: 'tree' | 'checkbox' | 'radio') => {
     if (isMultiple
-      && (emitType === 'checkbox' || (selectOnClickNode && emitType === 'tree'))
+      && (emitType === 'checkbox' || emitType === 'tree')
       && Array.isArray(value)) {
       // handle multiple
       const index = value.findIndex(item => item === path);
@@ -137,7 +142,7 @@ const App: React.FC<Props> = ({
         setCurrentCheckboxVal(!currentCheckboxVal);
       }
       onChange(newVal);
-    } else if (isSingle && (emitType === 'radio' || (selectOnClickNode && emitType === 'tree'))) {
+    } else if (isSingle && (emitType === 'radio' || emitType === 'tree')) {
       // handle single
       if (value !== path) {
         const newVal = path;
@@ -176,17 +181,26 @@ const App: React.FC<Props> = ({
         isSelected && highlightSelectedNode ? 'is-highlight-selected': '',
         isMouseover ? 'is-mouseover': ''
       ].join(' ')}
-      onClick={(e) => handleClick('tree', e)}
+      onClick={handleClick}
       onMouseOver={handleMouseover}
       onMouseOut={handleMouseout}
     >
       {
         showSelectController && selectable ? [
           isMultiple ? (
-            <Checkbox value={currentCheckboxVal} onChange={() => handleClick('checkbox')} />
+            <Checkbox
+              key={path}
+              value={currentCheckboxVal}
+              onChange={() => handleValueChange('checkbox')}
+            />
           ) : null,
           isSingle && typeof value === 'string' ? (
-            <Radio value={value} onChange={() => handleClick('radio')} path={path} />
+            <Radio
+              key={path}
+              value={value}
+              path={path}
+              onChange={() => handleValueChange('radio')}
+            />
           ) : null
         ] : null
       }
@@ -209,10 +223,9 @@ const App: React.FC<Props> = ({
             </BracketsLeft>
 
             {
-              Object.keys(data).map((key: number | string) => {
+              visible && Object.keys(data).map((key: number | string) => {
                 const item = data[key];
                 // 数据内容, data 为对象时, key 表示键名, 为数组时表示索引
-                if (!visible) return null;
                 return (
                   <div
                     key={key}
@@ -260,7 +273,9 @@ const App: React.FC<Props> = ({
             data={data}
           >
             {
-              !Array.isArray(parentData) && currentKey ? <span className="vjs-key">{keyFormatter(currentKey)}:</span> : null
+              !Array.isArray(parentData) && currentKey
+                ? <span className="vjs-key">{keyFormatter(currentKey)}:</span>
+                : null
             }
           </SimpleText>
         )
