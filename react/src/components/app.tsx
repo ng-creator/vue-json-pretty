@@ -37,6 +37,8 @@ export interface Props {
   highlightMouseoverNode?: boolean;
   // highlight current node when selected
   highlightSelectedNode?: boolean;
+  // collapsed control
+  collapsedOnClickBrackets?: boolean;
   // event: on values change
   onChange?: (val: string | string[]) => void,
   // event: click
@@ -68,6 +70,7 @@ const App: React.FC<Props> = ({
   pathSelectable = () => true,
   highlightMouseoverNode = false,
   highlightSelectedNode = true,
+  collapsedOnClickBrackets = true,
   onChange = () => {},
   onClick = () => {},
   // inner props
@@ -117,6 +120,12 @@ const App: React.FC<Props> = ({
       return false;
     }
   })();
+
+  const onToggleBrackets = (value: boolean) => {
+    if (collapsedOnClickBrackets) {
+      setVisible(value)
+    }
+  };
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -213,7 +222,7 @@ const App: React.FC<Props> = ({
               data={data}
               showLength={showLength}
               showComma={notLastKey}
-              onToggleBrackets={setVisible}
+              onToggleBrackets={onToggleBrackets}
             >
               {
                 currentDeep > 1 && !Array.isArray(parentData) && currentKey
@@ -249,6 +258,7 @@ const App: React.FC<Props> = ({
                       selectableType={selectableType}
                       showSelectController={showSelectController}
                       selectOnClickNode={selectOnClickNode}
+                      collapsedOnClickBrackets={collapsedOnClickBrackets}
                       currentKey={key}
                       currentDeep={currentDeep + 1}
                       onClick={onClick}
@@ -263,7 +273,7 @@ const App: React.FC<Props> = ({
               visible={visible}
               data={data}
               showComma={notLastKey}
-              onToggleBrackets={setVisible}
+              onToggleBrackets={onToggleBrackets}
             />
           </>
         ) : (

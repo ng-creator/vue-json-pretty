@@ -39,6 +39,7 @@ const ExampleApp: React.FC = () => {
     highlightMouseoverNode: true,
     highlightSelectedNode: true,
     selectOnClickNode: true,
+    collapsedOnClickBrackets: true,
     path: 'res',
     deep: 3,
   }) as any;
@@ -134,6 +135,7 @@ const ExampleApp: React.FC = () => {
             <Checkbox id="showLine" value={options.showLine} />
             <Checkbox id="showDoubleQuotes" value={options.showDoubleQuotes} />
             <Checkbox id="highlightMouseoverNode" value={options.highlightMouseoverNode} />
+            <Checkbox id="collapsedOnClickBrackets" value={options.collapsedOnClickBrackets} />
             <Select
               id="deep"
               value={options.deep}
@@ -156,6 +158,7 @@ const ExampleApp: React.FC = () => {
             showLength={options.showLength}
             showLine={options.showLine}
             highlightMouseoverNode={options.highlightMouseoverNode}
+            collapsedOnClickBrackets={options.collapsedOnClickBrackets}
             onClick={handleClick}
           />
         </div>
@@ -195,6 +198,7 @@ const ExampleApp: React.FC = () => {
             <Checkbox id="showDoubleQuotes" value={options.showDoubleQuotes} />
             <Checkbox id="highlightMouseoverNode" value={options.highlightMouseoverNode} />
             <Checkbox id="highlightSelectedNode" value={options.highlightSelectedNode} />
+            <Checkbox id="collapsedOnClickBrackets" value={options.collapsedOnClickBrackets} />
             <Select
               id="deep"
               value={options.deep}
@@ -234,6 +238,7 @@ const ExampleApp: React.FC = () => {
             selectableType={options.selectableType}
             showSelectController={options.showSelectController}
             pathSelectable={((path: string, data: any) => typeof data !== 'number')}
+            collapsedOnClickBrackets={options.collapsedOnClickBrackets}
             onClick={handleClick}
             onChange={handleChange}
           />
