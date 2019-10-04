@@ -37,7 +37,9 @@ export interface Props {
   highlightMouseoverNode?: boolean;
   // highlight current node when selected
   highlightSelectedNode?: boolean;
+  // event: on values change
   onChange?: (val: string | string[]) => void,
+  // event: click
   onClick?: (path: string, data: any) => void,
   /* outer props */
 
@@ -117,7 +119,7 @@ const App: React.FC<Props> = ({
   })();
 
   const handleClick = (e: React.MouseEvent) => {
-    // e.stopPropagation();
+    e.stopPropagation();
     onClick(path, data);
 
     if (selectable && selectOnClickNode) {
@@ -138,9 +140,7 @@ const App: React.FC<Props> = ({
         newVal.push(path);
       }
 
-      if (emitType !== 'checkbox') {
-        setCurrentCheckboxVal(!currentCheckboxVal);
-      }
+      setCurrentCheckboxVal(!currentCheckboxVal);
       onChange(newVal);
     } else if (isSingle && (emitType === 'radio' || emitType === 'tree')) {
       // handle single

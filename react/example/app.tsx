@@ -31,7 +31,7 @@ const ExampleApp: React.FC = () => {
   const [multipleValue, setMultipleValue] = useState(['res.error']);
 
   const [options, setOptions] = useState({
-    selectableType: 'single',
+    selectableType: 'multiple',
     showSelectController: true,
     showLength: false,
     showLine: true,
@@ -67,6 +67,17 @@ const ExampleApp: React.FC = () => {
         type="checkbox"
         checked={value}
         onChange={(e) => setOptions({ ...options, [id]: !value })}
+      />
+    </div>
+  );
+
+  const Input = ({ id, label, value }: any) => (
+    <div>
+      <label>{label || id}</label>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setOptions({ ...options, [id]: e.target.value })}
       />
     </div>
   );
@@ -195,12 +206,7 @@ const ExampleApp: React.FC = () => {
                 value: 4,
               }]}
             />
- 
-            <div>
-              <label>path</label>
-              <input type="text" v-model="path" />
-            </div>
-
+            <Input id="path" value={options.path} />
           </div>
           <h3>value:</h3>
           <div>
