@@ -46,7 +46,11 @@ const BracketsLeft: React.FC<Props> = ({
           // Expand
           <span
             className="vjs-tree__brackets"
-            onClick={() => onToggleBrackets(!visible)}>
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleBrackets(!visible)}
+            }
+          >
             {Array.isArray(data) ? '[' : '{' }
           </span>
         ) : (
@@ -54,7 +58,11 @@ const BracketsLeft: React.FC<Props> = ({
           <>
             <span
               className="vjs-tree__brackets"
-              onClick={() => onToggleBrackets(!visible)}>
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleBrackets(!visible)}
+              }
+            >
               {closedBracketsGenerator(data)}
             </span>
 

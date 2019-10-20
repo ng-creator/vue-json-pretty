@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonPretty from '../src';
+import ReactJsonBeautify from '../src';
 
 const { useState } = React;
 
@@ -151,7 +151,7 @@ const ExampleApp: React.FC = () => {
         </div>
         <div className="block">
           <h3>json-pretty:</h3>
-          <JsonPretty
+          <ReactJsonBeautify
             data={data}
             deep={options.deep}
             showDoubleQuotes={options.showDoubleQuotes}
@@ -224,7 +224,7 @@ const ExampleApp: React.FC = () => {
         </div>
         <div className="block">
           <h3>json-pretty:</h3>
-          <JsonPretty
+          <ReactJsonBeautify
             value={currentValue}
             data={data}
             path={options.path}

@@ -232,7 +232,8 @@ const App: React.FC<Props> = ({
             </BracketsLeft>
 
             {
-              visible && Object.keys(data).map((key: number | string) => {
+              visible && Object.keys(data).map((attr: string) => {
+                const key: number | string = Array.isArray(data) ? +attr : attr;
                 const item = data[key];
                 // 数据内容, data 为对象时, key 表示键名, 为数组时表示索引
                 return (
