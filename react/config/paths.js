@@ -74,6 +74,7 @@ module.exports = {
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveModule(resolveApp, 'example/main'),
   appPackageJson: resolveApp('package.json'),
+  appReadme: resolveApp('README.md'),
   appSrc: resolveApp('src'),
   appExample: resolveApp('example'),
   appTsConfig: resolveApp('tsconfig.json'),
@@ -84,6 +85,8 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  distPath: resolveApp('dist'),
+  distIndexJs: resolveModule(resolveApp, 'src/index'),
 };
 
 
