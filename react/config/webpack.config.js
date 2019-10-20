@@ -441,6 +441,7 @@ module.exports = function(webpackEnv) {
       'react-json-beautify': paths.distIndexJs,
     },
     output: {
+      publicPath: publicPath,
       path: paths.distPath,
       filename: '[name].js',
       library: 'ReactJsonBeautify',

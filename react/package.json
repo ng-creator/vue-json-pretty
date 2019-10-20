@@ -1,8 +1,33 @@
 {
   "name": "react-json-beautify",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
+  "version": "0.0.1-beta",
+  "description": "A JSON tree view component that is easy to use and also supports data selection.",
+  "author": "leezng <im.leezng@gmail.com>",
+  "main": "react-json-beautify.js",
+  "scripts": {
+    "dev": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "dist": "cross-env DIST_ENV=true node scripts/dist.js",
+    "test": "node scripts/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:leezng/vue-json-pretty.git"
+  },
+  "homepage": "https://leezng.github.io/vue-json-pretty",
+  "keywords": [
+    "react",
+    "json",
+    "format",
+    "pretty",
+    "beautify",
+    "react-component"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leezng/vue-json-pretty/issues"
+  },
+  "devDependencies": {
     "@babel/core": "7.5.5",
     "@svgr/webpack": "4.3.2",
     "@types/jest": "24.0.18",
@@ -66,12 +91,6 @@
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.3.1"
-  },
-  "scripts": {
-    "dev": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "dist": "cross-env DIST_ENV=true node scripts/dist.js",
-    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"
