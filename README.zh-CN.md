@@ -61,6 +61,7 @@ export default {
 | showLine | 基础 | 是否显示缩紧标识线 | boolean | true |
 | showDoubleQuotes | 基础 | 是否展示key名的双引号 | boolean | true |
 | highlightMouseoverNode | 基础 | 是否在mouseover的时候高亮 | boolean | false |
+| collapsedOnClickBrackets | 基础 | 收缩控制 | boolean | true |
 | v-model | 高级 | 双向绑定选中的数据层级 | string, array | -, [] |
 | path | 高级 | 定义最顶层数据层级 | string | root |
 | pathChecked | 高级 | 定义哪些数据层级是已被选中的 | array | [] |
