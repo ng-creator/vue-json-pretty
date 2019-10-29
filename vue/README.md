@@ -1,10 +1,10 @@
-# react-json-beautify
+# vue-json-pretty
 
 [![Build Status](https://travis-ci.org/leezng/vue-json-pretty.svg?branch=master)](https://travis-ci.org/leezng/vue-json-pretty)
-[![npm package](https://img.shields.io/npm/v/react-json-beautify.svg)](https://www.npmjs.org/package/react-json-beautify)
+[![npm package](https://img.shields.io/npm/v/vue-json-pretty.svg)](https://www.npmjs.org/package/vue-json-pretty)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/leezng/vue-json-pretty/blob/master/LICENSE)
 
-A react component for rendering JSON data as a tree structure.
+A vue 2.x component for rendering JSON data as a tree structure.
 
 - As a JSON Formatter
 - Get item data from JSON
@@ -13,42 +13,44 @@ A react component for rendering JSON data as a tree structure.
 
 - [Demo](https://leezng.github.io/vue-json-pretty)
 - [Github](https://github.com/leezng/vue-json-pretty)
-- [NPM](https://www.npmjs.com/package/react-json-beautify)
+- [NPM](https://www.npmjs.com/package/vue-json-pretty)
 - [中文文档](./README.zh-CN.md)
 
 ## Install
 
-```bash
-yarn add react-json-beautify
+```js
+npm install vue-json-pretty
 ```
 
 ## Usage
 
-```jsx
-import ReactJsonBeautify from 'react-json-beautify';
-import 'react-json-beautify/styles.css';
-
-ReactDOM.render(<ReactJsonBeautify {...props} />, mountNode);
+```html
+<template>
+  <div>
+    ...
+    <vue-json-pretty
+      :path="'res'"
+      :data="{ key: 'value' }"
+      @click="handleClick">
+    </vue-json-pretty>
+  </div>
+</template>
 ```
 
-## Example
-```
-<ReactJsonBeautify
-  data={data}
-  deep={options.deep}
-  showDoubleQuotes={options.showDoubleQuotes}
-  showLength={options.showLength}
-  showLine={options.showLine}
-  highlightMouseoverNode={options.highlightMouseoverNode}
-  collapsedOnClickBrackets={options.collapsedOnClickBrackets}
-  onClick={handleClick}
-/>
+```js
+import VueJsonPretty from 'vue-json-pretty'
+
+export default {
+  components: {
+    VueJsonPretty
+  }
+}
 ```
 
 ## Props
 
-- If you are using only the normal features (JSON pretty), just focus on the `normal` properties.
-- If you are using higher features (Get data), you can use `normal` and `higher` attributes.
+- If you are using only the normal features (JSON pretty), just focus on the `base` properties.
+- If you are using higher features (Get data), you can use `base` and `higher` attributes.
 
 | Attribute | Level | Description | Type | Default |
 |-------- |-------- |-------- |-------- | -------- |
@@ -59,13 +61,18 @@ ReactDOM.render(<ReactJsonBeautify {...props} />, mountNode);
 | showDoubleQuotes | normal | whether to show doublequotes on key | boolean | true |
 | highlightMouseoverNode | normal | highlight current node when mouseover | boolean | false |
 | collapsedOnClickBrackets | normal | collapse control | boolean | true |
-| v-model | higher | defines value when the tree can be selected | string|string[] | -, [] |
+| v-model | higher | defines value when the tree can be selected | string, array | -, [] |
 | path | higher | root data path | string | root |
 | pathChecked | higher | defines the selected data path | array | [] |
 | pathSelectable | higher | defines whether a data path supports selection | Function(itemPath, itemData) | - |
-| selectableType | higher | defines the selected type, this feature is not supported by default | enum: multiple, single  | - |
+| selectableType | higher | defines the selected type, this feature is not supported by default | enum: -, multiple, single  | - |
 | showSelectController | higher | whether to show the select controller at left | boolean | false |
 | selectOnClickNode | higher | whether to change selected value when click node | boolean | true |
 | highlightSelectedNode | higher | highlight current node when selected | boolean | true |
-| onClick  | - | triggered when a data item is clicked | Function(path, data) | - |
-| onChange  | - | triggered when the selected value changed (only the selectableType not null) | Function(newVal, oldVal) | - |
+
+## Events
+
+| Event Name | Description | Callback Parameters |
+|---------- |-------- |---------- |
+| click  | triggered when a data item is clicked | (path, data) |
+| change  | triggered when the selected value changed (only the selectableType not null) | (newVal, oldVal) |
