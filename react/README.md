@@ -47,8 +47,8 @@ ReactDOM.render(<ReactJsonBeautify {...props} />, mountNode);
 
 ## Props
 
-- If you are using only the normal features (JSON pretty), just focus on the `normal` properties.
-- If you are using higher features (Get data), you can use `normal` and `higher` attributes.
+- If you are using only the normal features (JSON pretty), just focus on the `base` properties.
+- If you are using higher features (Get data), you can use `base` and `higher` attributes.
 
 | Attribute | Level | Description | Type | Default |
 |-------- |-------- |-------- |-------- | -------- |
