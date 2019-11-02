@@ -60,7 +60,6 @@ export default {
 | showLine | normal | whether to show the line | boolean | true |
 | showDoubleQuotes | normal | whether to show doublequotes on key | boolean | true |
 | highlightMouseoverNode | normal | highlight current node when mouseover | boolean | false |
-| collapsedOnClickBrackets | normal | collapse control | boolean | true |
 | v-model | higher | defines value when the tree can be selected | string, array | -, [] |
 | path | higher | root data path | string | root |
 | pathChecked | higher | defines the selected data path | array | [] |

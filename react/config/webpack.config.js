@@ -450,7 +450,7 @@ module.exports = function(webpackEnv) {
     plugins: [
       new webpack.DefinePlugin(env.stringified),
       new MiniCssExtractPlugin({
-        filename: 'styles.css',
+        filename: '[name].css',
       }),
       new CopyWebpackPlugin([
         {

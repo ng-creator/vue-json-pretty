@@ -1,71 +1,44 @@
-# react-json-beautify
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[![Build Status](https://travis-ci.org/leezng/vue-json-pretty.svg?branch=master)](https://travis-ci.org/leezng/vue-json-pretty)
-[![npm package](https://img.shields.io/npm/v/react-json-beautify.svg)](https://www.npmjs.org/package/react-json-beautify)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/leezng/vue-json-pretty/blob/master/LICENSE)
+## Available Scripts
 
-A react component for rendering JSON data as a tree structure.
+In the project directory, you can run:
 
-- As a JSON Formatter
-- Get item data from JSON
+### `npm start`
 
-## Links
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- [Demo](https://leezng.github.io/vue-json-pretty)
-- [Github](https://github.com/leezng/vue-json-pretty)
-- [NPM](https://www.npmjs.com/package/react-json-beautify)
-- [中文文档](./README.zh-CN.md)
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-## Install
+### `npm test`
 
-```bash
-yarn add react-json-beautify
-```
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Usage
+### `npm run build`
 
-```jsx
-import ReactJsonBeautify from 'react-json-beautify';
-import 'react-json-beautify/styles.css';
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-ReactDOM.render(<ReactJsonBeautify {...props} />, mountNode);
-```
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-## Example
-```
-<ReactJsonBeautify
-  data={data}
-  deep={options.deep}
-  showDoubleQuotes={options.showDoubleQuotes}
-  showLength={options.showLength}
-  showLine={options.showLine}
-  highlightMouseoverNode={options.highlightMouseoverNode}
-  collapsedOnClickBrackets={options.collapsedOnClickBrackets}
-  onClick={handleClick}
-/>
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Props
+### `npm run eject`
 
-- If you are using only the normal features (JSON pretty), just focus on the `base` properties.
-- If you are using higher features (Get data), you can use `base` and `higher` attributes.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-| Attribute | Level | Description | Type | Default |
-|-------- |-------- |-------- |-------- | -------- |
-| data | normal | json data | JSON object | - |
-| deep | normal | data depth, data larger than this depth will not be expanded | number | Infinity |
-| showLength | normal | whether to show the length when closed | boolean | false |
-| showLine | normal | whether to show the line | boolean | true |
-| showDoubleQuotes | normal | whether to show doublequotes on key | boolean | true |
-| highlightMouseoverNode | normal | highlight current node when mouseover | boolean | false |
-| collapsedOnClickBrackets | normal | collapse control | boolean | true |
-| v-model | higher | defines value when the tree can be selected | string|string[] | -, [] |
-| path | higher | root data path | string | root |
-| pathChecked | higher | defines the selected data path | array | [] |
-| pathSelectable | higher | defines whether a data path supports selection | Function(itemPath, itemData) | - |
-| selectableType | higher | defines the selected type, this feature is not supported by default | enum: multiple, single  | - |
-| showSelectController | higher | whether to show the select controller at left | boolean | false |
-| selectOnClickNode | higher | whether to change selected value when click node | boolean | true |
-| highlightSelectedNode | higher | highlight current node when selected | boolean | true |
-| onClick  | - | triggered when a data item is clicked | Function(path, data) | - |
-| onChange  | - | triggered when the selected value changed (only the selectableType not null) | Function(newVal, oldVal) | - |
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
