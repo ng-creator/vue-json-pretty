@@ -1,6 +1,6 @@
 {
   "name": "react-json-beautify",
-  "version": "0.0.1-beta",
+  "version": "0.0.3-beta",
   "description": "A JSON tree view component that is easy to use and also supports data selection.",
   "author": "leezng <im.leezng@gmail.com>",
   "main": "react-json-beautify.js",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git@github.com:leezng/vue-json-pretty.git"
   },
-  "homepage": "https://leezng.github.io/vue-json-pretty",
+  "homepage": "",
   "keywords": [
     "react",
     "json",
