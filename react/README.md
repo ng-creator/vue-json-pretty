@@ -5,13 +5,7 @@
 
 A react component for rendering JSON data as a tree structure.
 
-- As a JSON Formatter
-- Get item data from JSON
-
-## Links
-
-- [Github](https://github.com/leezng/vue-json-pretty)
-- [NPM](https://www.npmjs.com/package/react-json-beautify)
+Based on [vue-json-pretty](https://github.com/leezng/vue-json-pretty).
 
 ## Install
 
@@ -44,8 +38,8 @@ ReactDOM.render(<ReactJsonBeautify {...props} />, mountNode);
 
 ## Props
 
-- If you are using only the normal features (JSON pretty), just focus on the `normal` properties.
-- If you are using higher features (Get data), you can use `normal` and `higher` attributes.
+- If you are using only the normal features (JSON pretty), just focus on the `base` properties.
+- If you are using higher features (Get data), you can use `base` and `higher` attributes.
 
 | Attribute | Level | Description | Type | Default |
 |-------- |-------- |-------- |-------- | -------- |
