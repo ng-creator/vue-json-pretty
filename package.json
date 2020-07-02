@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:leezng/vue-json-pretty.git"
+    "url": "git@github.com:ng-creator/vue-json-pretty.git"
   },
   "homepage": "https://leezng.github.io/vue-json-pretty",
   "keywords": [
